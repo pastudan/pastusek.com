@@ -1,176 +1,139 @@
-import * as React from "react"
+import * as React from 'react'
 
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
+import content from '../../content/main-site-copy.yml'
+import publications from '../../content/publications.yml'
+import workshops from '../../content/workshops.yml'
 
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
-
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
-}
-
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
-
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
-}
-
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
-
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/getting-started/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
-  },
-]
+import favicon from '../images/favicon.ico'
+import logo from '../images/logo.svg'
+import introTeaching from '../images/intro-teaching.png'
+import socialProof from '../images/social-proof.png'
 
 const IndexPage = () => {
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! 🎉🎉🎉</span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time. 😎
-      </p>
-      <ul style={listStyles}>
-        <li style={docLinkStyle}>
-          <a
-            style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-          >
-            {docLink.text}
-          </a>
-        </li>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-              >
-                {link.text}
-              </a>
-              {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
-                  NEW!
-                </span>
-              )}
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
-          </li>
+    <main>
+      <header>
+        <div className="px-8 p-6 container mx-auto flex flex-col lg:flex-row items-center justify-between">
+          <div className="flex justify-center lg:justify-start">
+            <div className="border-b border-red-500 mb-5 lg:mb-0  pb-1 w-72">
+              <img src={logo} alt="logo" className="border-b border-red-500 pb-2" />
+            </div>
+          </div>
+          <nav className="text-xs lg:text-base">
+            <ul className="flex justify-center items-center space-x-4">
+              <li>
+                <a href="#training" className="hover:text-red-600">
+                  Training
+                </a>
+              </li>
+              <li>
+                <a href="#consulting" className="hover:text-red-600">
+                  Consulting
+                </a>
+              </li>
+              <li>
+                <a href="#challenges" className="hover:text-red-600">
+                  Industry Challenges
+                </a>
+              </li>
+              <li>
+                <a href="#publications" className="hover:text-red-600">
+                  Publications
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="bg-black rounded-full text-white py-1 px-4">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <section id="home" className="px-8 mt-10 p-4 container mx-auto flex">
+        <div className="mr-10">
+          <h1 className="text-3xl font-bold">{content.title}</h1>
+          <p>{content.intro_text}</p>
+        </div>
+        <img src={introTeaching} alt="Teaching a course on Drilling Mechanics" className="w-1/2" />
+      </section>
+
+      <section id="social-proof" className="px-8 p-4 container mx-auto flex">
+        <img src={socialProof} alt="Social Proof" className="w-full" />
+      </section>
+
+      <section id="about" className="px-8 mt-6 p-4 container mx-auto">
+        <h2 className="text-3xl font-bold">About Us</h2>
+        {content.about_us.split('\n').map((p, i) => (
+          <p key={i}>{p}</p>
         ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
-      />
+      </section>
+
+      <section id="training" className="px-8 mt-6 p-4 container mx-auto">
+        <h2 className="text-3xl font-bold">Training</h2>
+        {content.training.split('\n').map((p, i) => (
+          <p key={i}>{p}</p>
+        ))}
+      </section>
+
+      <section id="consulting" className="px-8 mt-6 p-4 container mx-auto">
+        <h2 className="text-3xl font-bold">Consulting and Workshops</h2>
+        {content.consulting.split('\n').map((p, i) => (
+          <p key={i}>{p}</p>
+        ))}
+        <div className="flex flex-wrap justify-start mt-8">
+          {workshops.slice(0, 5).map((course) => (
+            <a href={`/training#${course.title.replace(/[^a-z0-9]/, '')}`} className="">
+              <div className="border border-gray-200 hover:border-red-500 rounded mt-4 w-72 mx-2">
+                <div className="bg-gray-200 p-2 rounded-t">
+                  <h3 className="text-xl font-bold">{course.title}</h3>
+                  <p className="mt-0">{course.duration}</p>
+                </div>
+                <p className="p-4">
+                  {course.description}
+                  <ul className="list-disc ml-4">
+                    {course.topics.map((topic, i) => (
+                      <li key={i}>{topic}</li>
+                    ))}
+                  </ul>
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section id="challenges" className="px-8 mt-6 p-4 container mx-auto">
+        <h2 className="text-3xl font-bold">Industry Challenges and Opportunities</h2>
+        {content.challenges.split('\n').map((p, i) => (
+          <p key={i}>{p}</p>
+        ))}
+      </section>
+
+      <section id="publications" className="px-8 mt-6 p-4 container mx-auto">
+        <h2 className="text-3xl font-bold">Publications</h2>
+        <ol className="list-decimal ml-8 mt-4">
+          {publications.slice(0, 2).map((pub) => (
+            <li className="pl-4">
+              <a className="hover:underline" href={pub.link}>
+                {pub.title}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <footer className="bg-black text-white mx-auto flex justify-center py-20 mt-12">Copyright 2024, Pastusek and Associates</footer>
     </main>
   )
 }
 
 export default IndexPage
 
-export const Head = () => <title>Home Page</title>
+export const Head = () => (
+  <>
+    <title>Pastusek and Associates</title>
+    <meta name="description" content="Pastusek and Associates - Oilfield consulting" />
+    <link rel="icon" type="image/png" sizes="16x16" href={favicon} />
+  </>
+)
