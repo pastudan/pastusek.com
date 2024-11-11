@@ -81,10 +81,10 @@ const IndexPage = () => {
         {content.consulting.split('\n').map((p, i) => (
           <p key={i}>{p}</p>
         ))}
-        <div className="flex flex-wrap justify-start mt-8">
+        <div className="grid grid-cols-3 gap-4 mt-8">
           {workshops.slice(0, 5).map((course) => (
             <a href={`/training#${course.title.replace(/[^a-z0-9]/, '')}`} className="">
-              <div className="border border-gray-200 hover:border-red-500 rounded mt-4 w-72 mx-2">
+              <div className="border border-gray-200 hover:border-red-500 rounded mt-4">
                 <div className="bg-gray-200 p-2 rounded-t">
                   <h3 className="text-xl font-bold">{course.title}</h3>
                   <p className="mt-0">{course.duration}</p>
